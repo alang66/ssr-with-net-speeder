@@ -101,7 +101,7 @@ function deal_data(_appid,data,callback)
                     ss_obfs = RegExp.$1;
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"name":data[i].id,"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
+                    var ret_json = {"name":"test","appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
 		    if(ss_protocol && ss_obfs)
                     {
                         ret_json["protocol"] = ss_protocol;
