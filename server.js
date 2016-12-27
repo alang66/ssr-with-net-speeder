@@ -75,7 +75,6 @@ function deal_data(_appid,data,callback)
         if(data[i].id == _appid ||(_appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
         {
 	        var jn = data[i];
-		alert(jn);
             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
             {
 		var name = jn.attributes.name;
@@ -102,7 +101,7 @@ function deal_data(_appid,data,callback)
                     ss_obfs = RegExp.$1;
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"name":name,"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};\		
+                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};\		
 		    ret_json["name"] = name;
 		    if(ss_protocol && ss_obfs)
                     {
