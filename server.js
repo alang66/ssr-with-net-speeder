@@ -74,7 +74,17 @@ function deal_data(_appid,data,callback)
 	{
         if(data[i].id == _appid ||(_appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
         {
-	        var jn = data[i];
+            var jn = data[i];
+            if (!jn.attributes.is_running) {
+                continue;
+            }
+            if (jn.attributes.port_mappings.length <= 0) {
+                continue;
+            }
+            if (jn.attributes.arukas_domain.substring(0, 1)=="m")
+            {
+                continue;
+            }
             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
             {
                 var host = jn.attributes.port_mappings[j][0].host;    
@@ -100,7 +110,7 @@ function deal_data(_appid,data,callback)
                     ss_obfs = RegExp.$1;
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"name": data[i].attributes.arukas_domain,"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
+                    var ret_json = { "name": data[i].attributes.arukas_domain, "appid": data[i].id, "server": ip, "server_port": service_port, "password": ss_password, "method": ss_method };
 		    if(ss_protocol && ss_obfs)
                     {
                         ret_json["protocol"] = ss_protocol;
