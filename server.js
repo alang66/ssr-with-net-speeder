@@ -75,6 +75,7 @@ function deal_data(_appid,data,callback)
         if(data[i].id == _appid ||(_appid == 'all' && images.indexOf(data[i].attributes.image_name.replace(/:[^ ]+/,''))>-1) )
         {
 	        var jn = data[i];
+		alert(jn);
             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
             {
 		var name = jn.attributes.name;
