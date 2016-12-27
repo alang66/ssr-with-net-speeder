@@ -102,9 +102,9 @@ function deal_data(_appid,data,callback)
                     ss_obfs = RegExp.$1;
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"name":name,"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
-                    alert(ret_json);
-			if(ss_protocol && ss_obfs)
+                    var ret_json = {"name":name,"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};\		
+		    ret_json["name"] = name;
+		    if(ss_protocol && ss_obfs)
                     {
                         ret_json["protocol"] = ss_protocol;
                         ret_json["obfs"] = ss_obfs;
@@ -112,7 +112,6 @@ function deal_data(_appid,data,callback)
                     ret_list.push(ret_json);
                     break;
                 }
-		    alert(ret_list);
             }
         }
 	}
