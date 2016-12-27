@@ -77,6 +77,7 @@ function deal_data(_appid,data,callback)
 	        var jn = data[i];	
             for (var j = 0; j < jn.attributes.port_mappings.length; j++)
             {
+		var name = jn.attributes.name;
                 var host = jn.attributes.port_mappings[j][0].host;    
                 var ip = host.substring(6,host.indexOf(".")).replace(/-/g,".");
                 var service_port = jn.attributes.port_mappings[j][0].service_port;
@@ -100,7 +101,7 @@ function deal_data(_appid,data,callback)
                     ss_obfs = RegExp.$1;
                 if(ss_port == container_port)
                 {
-                    var ret_json = {"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
+                    var ret_json = {"name":name,"appid":data[i].id,"server":ip,"server_port":service_port,"password":ss_password,"method":ss_method};
                     if(ss_protocol && ss_obfs)
                     {
                         ret_json["protocol"] = ss_protocol;
