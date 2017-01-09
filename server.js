@@ -23,7 +23,7 @@ if(args[0].indexOf('@') > -1)
 
 
 appid   =   args[2],
-images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker","mritd/shadowsocks"];
+images  =   ["malaohu/ssr-with-net-speeder","lowid/ss-with-net-speeder","smounives/shadowsocksr-docker","mritd/shadowsocks","tommylau/shadowsocks"];
 
 
 app.get('/', function(req, res) {
